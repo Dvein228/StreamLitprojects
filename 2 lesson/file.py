@@ -12,9 +12,6 @@ with tab1:
     with col2:
         st.subheader("Привіт, я майбутній Python Developer")
         st.write("Я навчаюсь в Малій Комп'ютерній Академії IT STEP. Створюю круті веб-додатки та вивчаю")
-        with st.container():
-            st.info("Контакти для зв'язку") 
-            st.markdown("- GitHub: [Мій профіль](https://github.com/Dvein228)")
 
 with tab2:
     st.info("Ця вкладка у розробці")

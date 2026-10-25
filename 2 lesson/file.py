@@ -8,7 +8,7 @@ with tab1:
     st.header("Знайомство з автором")
     col1, col2 = st.columns([1, 2])
     with col1:
-        st.image("shutterstock_2331893385.jpg", caption="Я", width=400)
+        st.image("istockphoto-1276164321-612x612-removebg-preview.png", caption="Я", width=400)
     with col2:
         st.subheader("Привіт, я майбутній Python Developer")
         st.write("Я навчаюсь в Малій Комп'ютерній Академії IT STEP. Створюю круті веб-додатки та вивчаю")

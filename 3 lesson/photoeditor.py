@@ -58,7 +58,7 @@ if uploaded_file is not None:
         )
 
     elif filter_option == "Инверсия":
-        processed_img = cv2.bitwise_not(img_arr)
+        processed_img = 255-img_arr
 
     col1, col2 = st.columns(2)
 

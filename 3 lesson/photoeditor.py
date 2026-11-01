@@ -2,6 +2,7 @@ import streamlit as st
 import cv2
 import numpy as np
 from PIL import Image
+import io
 
 st.set_page_config(
     page_title="фоточки",
@@ -26,7 +27,8 @@ filter_option = st.sidebar.selectbox(
         "Яркость",
         "Контраст",
         "Размытие",
-        "Инверсия"
+        "Инверсия",
+        "Sketch"
     ]
 )
 
@@ -57,7 +59,28 @@ if uploaded_file is not None:
         )
 
     elif filter_option == "Инверсия":
-        processed_img = 255-img_arr
+        processed_img = 255 - img_arr
+
+    elif filter_option == "Sketch":
+        # 1. Преобразование в черно-белое
+        gray = cv2.cvtColor(
+            img_arr, cv2.COLOR_RGB2GRAY
+        )
+
+        # 2. Инвертирование изображения
+        inverted = 255 - gray
+
+        # 3. Размытие инвертированного изображения
+        blurred = cv2.GaussianBlur(
+            inverted, (21, 21), 0
+        )
+
+        # 4. Смешивание изображений
+        processed_img = cv2.divide(
+            gray,
+            255 - blurred,
+            scale=256.0
+        )
 
     col1, col2 = st.columns(2)
 
@@ -68,12 +91,6 @@ if uploaded_file is not None:
     with col2:
         st.subheader("Изменённая")
         st.image(processed_img, width="stretch")
-
-        result_image = Image.fromarray(processed_img)
-
-        buf= io.bytesIO()
-        result_image.save(buf, format="JPEG")
-        byte_im = buf.getvalue()
 
 else:
     st.info("Загрузите фотографию, чтобы начать обработку.")

@@ -1,4 +1,3 @@
-
 import streamlit as st
 import cv2
 import numpy as np
@@ -69,6 +68,12 @@ if uploaded_file is not None:
     with col2:
         st.subheader("Изменённая")
         st.image(processed_img, width="stretch")
+
+        result_image = Image.fromarray(processed_img)
+
+        buf= io.bytesIO()
+        result_image.save(buf, format="JPEG")
+        byte_im = buf.getvalue()
 
 else:
     st.info("Загрузите фотографию, чтобы начать обработку.")

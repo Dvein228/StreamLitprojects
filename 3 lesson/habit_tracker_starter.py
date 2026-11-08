@@ -90,3 +90,21 @@ with st.form("new_record"):
 #             st.date_input() для періоду, відфільтруй DataFrame перед
 #             побудовою графіка (df["category"].isin(...) та
 #             df["date"].between(...)).
+if submitted:
+    records = load_data()
+    records.append({"date": str(date),
+                    "category": category,
+                    "minutes": minutes})
+    save_data(records)
+    st.success("✅ Запис додано!")
+ 
+ 
+#----------------------------------------------------------------------------
+records = load_data()
+ 
+if records:
+    df = pd.DataFrame(records)
+    st.subheader("Всі записи")
+    st.dataframe(df, use_container_width=True)
+else:
+    st.info("Поки що немає жодного запису. Додай перший через форму вище!")

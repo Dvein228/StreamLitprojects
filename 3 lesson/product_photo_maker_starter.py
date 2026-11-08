@@ -12,7 +12,6 @@ import streamlit as st
 from PIL import Image
 from rembg import remove
 
-
 def remove_background(image: Image.Image) -> Image.Image:
     """Видаляє фон із зображення за допомогою моделі rembg.
 

@@ -1,0 +1,10 @@
+[
+  {"date": "2026-09-14", "category": "Навчання", "minutes": 40},
+  {"date": "2026-09-14", "category": "Спорт", "minutes": 30},
+  {"date": "2026-09-15", "category": "Читання", "minutes": 25},
+  {"date": "2026-09-16", "category": "Навчання", "minutes": 55},
+  {"date": "2026-09-17", "category": "Спорт", "minutes": 45},
+  {"date": "2026-09-18", "category": "Навчання", "minutes": 20},
+  {"date": "2026-09-19", "category": "Читання", "minutes": 35},
+  {"date": "2026-09-20", "category": "Інше", "minutes": 15}
+]

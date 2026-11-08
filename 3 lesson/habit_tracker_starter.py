@@ -13,8 +13,7 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-DATA_FILE = "habit_data_sample.json"
-
+DATA_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "habit_data_sample.json")
 
 def load_data() -> list:
     """Читає всі записи з JSON-файлу.

@@ -1,3 +1,4 @@
+
 import streamlit as st
 import cv2
 import numpy as np
@@ -28,7 +29,8 @@ filter_option = st.sidebar.selectbox(
         "Контраст",
         "Размытие",
         "Инверсия",
-        "Sketch"
+        "Sketch",
+        "Віддзеркалення"
     ]
 )
 
@@ -81,6 +83,9 @@ if uploaded_file is not None:
             255 - blurred,
             scale=256.0
         )
+
+    elif filter_option == "Віддзеркалення":
+        processed_img = cv2.flip(img_arr, 1)
 
     col1, col2 = st.columns(2)
 
